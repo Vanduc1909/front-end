@@ -2,15 +2,24 @@ const Home = () => {
   return (
     <div>
       <h1>Home</h1>
-      <a href="/register" type="button" className="btn btn-primary m-2">
+      <button
+        className="btn btn-primary m-2"
+        onClick={() => (window.location.href = "/register")}
+      >
         Register
-      </a>
-      <a href="/login" type="button" className="btn btn-secondary m-2">
+      </button>
+      <button
+        className="btn btn-success m-2"
+        onClick={() => (window.location.href = "/login")}
+      >
         Login
-      </a>
-      <a href="/dashboard" type="button" className="btn btn-info m-2">
+      </button>
+      <button
+        className="btn btn-info m-2"
+        onClick={() => (window.location.href = "/dashboard")}
+      >
         Dashboard
-      </a>
+      </button>
     </div>
   );
 };
