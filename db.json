@@ -14,6 +14,16 @@
       "email": "123@gmail.com",
       "password": "$2a$10$me8YDHZTsyrmhSkPsCKNTOPAo2P2SD3/DokX/D/0jrruPJzNqfVe2",
       "id": 3
+    },
+    {
+      "email": "12345@gmail.com",
+      "password": "$2a$10$ijwIw7/fexk50kB/cT7M.O0R8JYPsHyLnlbYw0x74U4NvggJLLHhC",
+      "id": 4
+    },
+    {
+      "email": "111@gmail.com",
+      "password": "$2a$10$o8j68KRVat1Vvq13J1z3hOfAf9LB9atLxYBUV.2.BBtINv/Xp/a0i",
+      "id": 5
     }
   ]
 }
