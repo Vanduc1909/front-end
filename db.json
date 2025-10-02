@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "email": "ducduc1709@gmail.com",
+      "password": "$2a$10$w.g7M33oZ7Rb.Em6WNfYvu69GZ0kNkK/7SN1Jl4JvYNLhupYM0nFu",
+      "id": 1
+    },
+    {
+      "email": "1@gmail.com",
+      "password": "$2a$10$wD5XKWvGgvEzSgW2TxsZbezEYMZdjYK8FVy8Ug7UrT7tHwTdxRzrS",
+      "id": 2
+    },
+    {
+      "email": "123@gmail.com",
+      "password": "$2a$10$me8YDHZTsyrmhSkPsCKNTOPAo2P2SD3/DokX/D/0jrruPJzNqfVe2",
+      "id": 3
+    }
+  ]
+}
