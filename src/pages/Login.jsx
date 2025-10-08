@@ -22,7 +22,7 @@ const Login = () => {
   const onSubmit = async (data) => {
     const res = await api.post(`/login`, data);
     localStorage.setItem("user", JSON.stringify(res.data.user));
-    nav("/");
+    nav("/dashboard");
   };
 
   return (

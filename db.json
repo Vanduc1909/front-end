@@ -24,6 +24,11 @@
       "email": "111@gmail.com",
       "password": "$2a$10$o8j68KRVat1Vvq13J1z3hOfAf9LB9atLxYBUV.2.BBtINv/Xp/a0i",
       "id": 5
+    },
+    {
+      "email": "3@gmail.com",
+      "password": "$2a$10$MRdesj9MdqL93xHEmoVC4.7SzXBjHiUDCHsvKBYU8rFrcAXZWfBoG",
+      "id": 6
     }
   ]
 }
