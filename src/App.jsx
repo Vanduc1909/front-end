@@ -13,7 +13,7 @@ function App() {
         <Route element={<PrivateRouter />}>
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
-
+        <Route path="/login" element={<Login />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </>
