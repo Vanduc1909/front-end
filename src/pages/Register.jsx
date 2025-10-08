@@ -1,45 +1,52 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-
-import { useForm } from "react-hook-form";
-import { z } from "zod";
 import api from "../axios";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { z } from "zod";
 
 const schema = z.object({
-  email: z.string().email(),
-  password: z.string().min(6),
+  username: z.string().min(2, { message: "Ten phai co it nhat 2 ky tu" }),
+  email: z.string().email({ message: "Email khong dung dinh dang" }),
+  password: z.string().min(6, { message: "Mat khau phai co it nhat 6 ky tu" }),
 });
 const Register = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const nav = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: zodResolver(schema),
-  });
 
-  const onSubmit = async (data) => {
-    await api.post(`/register`, data);
-    nav("/login");
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const result = schema.safeParse({ username, email, password });
+    if (!result.success) {
+      setError(result.error.errors[0].message);
+      return;
+    }
+    setError("");
+    try {
+      await api.post("/register", { username, email, password });
+      nav("/login");
+    } catch (err) {
+      setError("Đăng ký thất bại!");
+    }
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={onSubmit}>
         <h1>Register</h1>
+        {error && <div className="alert alert-danger">{error}</div>}
         <div className="mb-3">
           <label htmlFor="username" className="form-label">
             username
           </label>
           <input
             type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             className="form-control"
-            {...register("username", { required: true })}
           />
-          {errors.username && (
-            <p className="text-danger">{errors.username.message}</p>
-          )}
         </div>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
@@ -47,12 +54,11 @@ const Register = () => {
           </label>
           <input
             type="text"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="form-control"
-            {...register("email", { required: true })}
           />
-          {errors.email && (
-            <p className="text-danger">{errors.email.message}</p>
-          )}
         </div>
         <div className="mb-3">
           <label htmlFor="password" className="form-label">
@@ -60,12 +66,11 @@ const Register = () => {
           </label>
           <input
             type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="form-control"
-            {...register("password", { required: true })}
           />
-          {errors.password && (
-            <p className="text-danger">{errors.password.message}</p>
-          )}
         </div>
         <div className="mb-3">
           <button className="btn btn-primary w-100">Register</button>

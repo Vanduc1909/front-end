@@ -3,18 +3,19 @@ import "./App.scss";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PrivateRouter from "./PrivateRouter";
-import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home";
+import Logout from "./pages/Logout";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Register />} />
         <Route element={<PrivateRouter />}>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Home />} />
         </Route>
+        <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </>
   );
