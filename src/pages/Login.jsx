@@ -1,8 +1,9 @@
 import api from "../axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import { z } from "zod";
+import { Typography } from "antd";
 
 const schema = z.object({
   username: z.string().min(2, { message: "Ten phai co it nhat 2 ky tu" }),
@@ -66,6 +67,10 @@ const Login = () => {
         <div className="mb-3">
           <button className="btn btn-primary w-100">Login</button>
         </div>
+
+        <Typography.Link>
+          <Link to="/register">Chưa có tài khoản? Đăng ký ngay</Link>
+        </Typography.Link>
       </form>
     </div>
   );
